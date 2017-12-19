@@ -23,6 +23,7 @@ use NFePHP\CTe\Factories\Events;
 use NFePHP\CTe\Common\Tools as ToolsCommon;
 use RuntimeException;
 use InvalidArgumentException;
+use NFePHP\Common\Soap\SoapCurl;
 
 class Tools extends ToolsCommon
 {
@@ -39,8 +40,8 @@ class Tools extends ToolsCommon
      */
     public function __construct($configJson, Certificate $certificate, $soapEncriptPrivateKey = false) {
         parent::__construct($configJson, $certificate);
-        $this->loadSoapClass(new SoapCurl($certificate));
-        $this->soap->setEncriptPrivateKey(false);
+        $this->loadSoapClass(new SoapCurl());
+        $this->soap->setEncriptPrivateKey($soapEncriptPrivateKey);
     }
 
 
