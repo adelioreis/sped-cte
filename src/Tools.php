@@ -32,6 +32,20 @@ class Tools extends ToolsCommon
     const EVT_NAO_REALIZADA = 210240;
 
     /**
+     * Tools constructor.
+     * @param string $configJson
+     * @param Certificate $certificate
+     * @param bool $soapEncriptPrivateKey
+     */
+    public function __construct($configJson, Certificate $certificate, $soapEncriptPrivateKey = false) {
+        super::__construct($configJson, $certificate);
+        $this->loadSoapClass(new SoapCurl($certificate));
+        $this->soap->setEncriptPrivateKey(false);
+    }
+
+
+
+    /**
      * Request authorization to issue CTe in batch with one or more documents
      * @param array $aXml array of nfe's xml
      * @param string $idLote lote number
