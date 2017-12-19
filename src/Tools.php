@@ -24,6 +24,7 @@ use NFePHP\CTe\Common\Tools as ToolsCommon;
 use RuntimeException;
 use InvalidArgumentException;
 use NFePHP\Common\Soap\SoapCurl;
+use NFePHP\Common\Certificate;
 
 class Tools extends ToolsCommon
 {
