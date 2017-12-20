@@ -41,7 +41,7 @@ class Tools extends ToolsCommon
      */
     public function __construct($configJson, Certificate $certificate, $soapEncriptPrivateKey = false) {
         parent::__construct($configJson, $certificate);
-        $this->loadSoapClass(new SoapCurl());
+        $this->loadSoapClass(new SoapCurl($certificate));
         $this->soap->setEncriptPrivateKey($soapEncriptPrivateKey);
     }
 
